@@ -5,3 +5,4 @@ Overview : Pass head of whichever list has smaller element as first. Creat point
 - If we cannot instert curr2 between curr1 and next1, we move the pointers ahead staying mindful of the end of list 1.
 - If we reach the end of list 1, which means next1 points to null, we point curr1->next to remaining list2.
 */
+
