@@ -6,7 +6,7 @@ Remember these 3 general steps that have to be applied while creating a solution
 3. Sum of all stuffs (to count all ways) or min/max as per question.
 
 ## Fibonacci Number using DP :
-### Coverting a Recrurrence relation to Memoization
+### Recrurrence -> Memoization
 - Create a dp[n+1] array initialized to -1.
 - Whenever we want to find the answer of a particular value (say n), we first check whether the answer is already calculated using the dp array(i.e dp[n]!= -1 ). If yes, simply return the value from the dp array.
 - If not, then we are finding the answer for the given value for the first time, we will use the recursive relation as usual but before returning from the function, we will set dp[n] to the solution we get.
