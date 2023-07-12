@@ -12,7 +12,7 @@ Add these neighbors to the queue and mark them as visited.
 8. Repeat steps 5-7 until the queue becomes empty.
 9. Once the queue is empty, the BFS traversal is complete.
 
-```bash
+```cpp
 vector<int> bfs(vector<vector<int>>& graph, int start) {
     queue<int> q;
     unordered_set<int> visited;
@@ -46,7 +46,7 @@ vector<int> bfs(vector<vector<int>>& graph, int start) {
 5. Process the current node. This can be performing any desired actions or just adding the node to a list to keep track of the traversal order.
 6. Recursively traverse all the unvisited neighboring nodes of the current node by calling the DFS function on each neighbor.
 7. Repeat steps 4-6 until all reachable nodes are visited.
-```bash
+```cpp
 void dfs(vector<vector<int>>& graph, int current, unordered_set<int>& visited, vector<int>& dfs) {
     visited.insert(current);
 
