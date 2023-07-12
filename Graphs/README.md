@@ -1,4 +1,4 @@
-#Graphs
+# Graphs
 
 ## I. BFS Traversal
 1. Choose a starting vertex or node from which you want to begin the traversal.
