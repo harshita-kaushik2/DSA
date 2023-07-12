@@ -6,8 +6,9 @@
 3. Create a visited array to keep track of the nodes that have been visited during the traversal. Add the starting node to the visited array.
 4. While the queue is not empty, repeat steps 5-8:
 5. Dequeue a node from the front of the queue. This will be the current node.
-6. Process the current node. This can involve performing any desired actions or simply adding the node to a list to keep track of the traversal order.
-7. Get all the neighboring nodes of the current node from the adjacency list (that have not been visited yet). Add these neighbors to the queue and mark them as visited.
+6. Process the current node. This can be performing any desired actions or just adding the node to a list to keep track of the traversal order.
+7. Get all the neighboring nodes of the current node from the adjacency list (that have not been visited yet). 
+Add these neighbors to the queue and mark them as visited.
 8. Repeat steps 5-7 until the queue becomes empty.
 9. Once the queue is empty, the BFS traversal is complete.
 
