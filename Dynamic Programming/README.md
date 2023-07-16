@@ -61,7 +61,4 @@ int main() {
   return 0;
 }
 ```
-## 2. Frog Jump
-Energy lost in jumping from i to jth stair = abs(HEIGHT[j-1] - HEIGHT[i-1]). Can jump to i+1 or i+2. Min energy to reach Nth stair ? 
-
-Greedy fails. Why ? Try it for the input : []
+## 2. 
