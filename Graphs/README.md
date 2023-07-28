@@ -1,8 +1,7 @@
 # Graphs
 
 ## I. BFS Traversal
-1. Choose a starting vertex or node from which you want to begin the traversal.
-2. Create a queue data structure to store the nodes that need to be visited. Initialize the queue with the starting node.
+1. Create a queue to store the nodes that need to be visited. Initialize the queue with the starting node.
 3. Create a visited array to keep track of the nodes that have been visited during the traversal. Add the starting node to the visited array.
 4. While the queue is not empty, repeat steps 5-8:
 5. Dequeue a node from the front of the queue. This will be the current node.
@@ -13,58 +12,47 @@ Add these neighbors to the queue and mark them as visited.
 9. Once the queue is empty, the BFS traversal is complete.
 
 ```cpp
-vector<int> bfs(vector<vector<int>>& graph, int start) {
+vector<int> bfsOfGraph(vector<vector<int>>& graph, int start) {
+    int vis[n] = {0};
+    vis[0] = 1;
     queue<int> q;
-    unordered_set<int> visited;
-
-    q.push(start);
-    visited.insert(start);
+    q.push(0);
     vector<int> bfs;
-
-    while (!q.empty()) {
-        int current = q.front();
+    while(!q.empty()) {
+        int node = q.front();
         q.pop();
-
-        bfs.push_back(current);
-
-        for (int neighbor : graph[current]) {
-            if (visited.find(neighbor) == visited.end()) {
-                q.push(neighbor);
-                visited.insert(neighbor);
-            }
+        bfs.push(node);
+    }
+    
+    for(auto it : adj[node]) {
+        if(!vis[it]) {
+            vis[it]=1;
+            q.push(it);
         }
     }
-    return bfs;
-}
 ```
 
 ## II. DFS Traversal 
-1. Choose a starting vertex or node from which you want to begin the traversal.
-2. Create a visited set or array to keep track of the nodes that have been visited during the traversal. Initially, mark all nodes as unvisited.
-3. Create a recursive function (or use a stack) to implement the DFS traversal. This function will take the current node as a parameter.
-4. Mark the current node as visited.
-5. Process the current node. This can be performing any desired actions or just adding the node to a list to keep track of the traversal order.
-6. Recursively traverse all the unvisited neighboring nodes of the current node by calling the DFS function on each neighbor.
-7. Repeat steps 4-6 until all reachable nodes are visited.
+1. Add the starting node to the answer and mark it as visited.
+2. Create a loop and traverse through all the elements of current node.
+3. Inside the loop, Recursively traverse all the ""unvisited"" neighboring nodes of the current node by calling the DFS function on each neighbor.
+
 ```cpp
-void dfs(vector<vector<int>>& graph, int current, unordered_set<int>& visited, vector<int>& dfs) {
-    visited.insert(current);
+void dfs(int node, vector<int> adj[], int vis[], vector<int> &ans ) {
+    vis[node] = 1;
+    ans.push_back(node);
 
-    // Process current node
-    dfs.push_back(current);
-
-    for (int neighbor : graph[current]) {
-        if (visited.find(neighbor) == visited.end()) {
-            dfs(graph, neighbor, visited);
-        }
+    for(auto it: adj[node]) {
+        if(!vis[it])
+        dfs(it,adj,vis,ans);
     }
 }
-
-void dfsTraversal(vector<vector<int>>& graph, int start) {
-    unordered_set<int> visited;
-    vector<int> dfs;
-    dfs(graph, start, visited, dfs);
-    return dfs;
+vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+    int vis[n] = {0};
+    int start = 0;
+    vector<int> ans;
+    dfs(start, adj, vis, ans);
+    return ans;
 }
 ```
 ## 3. Traversal across 2D matrix type Graphs
