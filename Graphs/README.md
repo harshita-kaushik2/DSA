@@ -1,5 +1,19 @@
 # Graphs
 
+## Coverting Adjacency Matrix to Adjacency List
+```cpp
+vector<int> adjLs[V]; 
+for(int i = 0;i<V;i++) {
+    for(int j = 0;j<V;j++) {
+        // self nodes are not considered
+        if(adj[i][j] == 1 && i != j) {  // this is where i messed up when I did it myself
+            adjLs[i].push_back(j); 
+            adjLs[j].push_back(i); 
+        }
+    }
+}    
+```
+
 ## I. BFS Traversal
 1. Create a queue to store the nodes that need to be visited. Initialize the queue with the starting node.
 3. Create a visited array to keep track of the nodes that have been visited during the traversal. Add the starting node to the visited array.

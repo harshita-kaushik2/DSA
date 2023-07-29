@@ -1,2 +1,15 @@
-![Alt text](/relative/path/to/image.png?raw=true "Optional Title")
->>>>>>> fa3a40e45cb7fb57213744090e71cd0ef8ffba2b
+# Recursion on Subsequences
+It is all about take or not take. Time Complexity : (2^N) x N
+
+```cpp
+f(ind, []) {
+    if(ind >= n){
+        print ([]);
+        return;
+    }
+    [].add(arr[i]);
+    f(ind+1,[]) // case : take
+    [].remove(arr[i]);
+    f(ind+1,[])
+}
+```
