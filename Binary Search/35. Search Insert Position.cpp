@@ -9,6 +9,7 @@ Example 1:
 Input: nums = [1,3,5,6], target = 5
 Output: 2
 */
+//METHOD 1 : IMPLEMENTING LOWER BOUND
 
 class Solution {
 public:
@@ -24,5 +25,14 @@ public:
             else     low = mid+1;        
         }
         return  low;   
+    }
+};
+
+//METHOD 2 : LOWER BOUND STL 
+
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        return lower_bound(nums.begin(), nums.end(), target) - nums.begin();
     }
 };
