@@ -1,15 +1,12 @@
-bool searchInBST(BinaryTreeNode<int> *root, int x) {
-    if (root == NULL) {
-        return false;
-    }
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        if(root==NULL)  return NULL;
 
-    if (root->data == x) {
-        return true;
+        while(root!=NULL && root->val != val) {
+            if(root->val <val)  root=root->right;
+            else    root=root->left;
+        }
+        return root;
     }
-    else if (x < root->data) {
-        return searchInBST(root->left, x);
-    }
-    else {
-        return searchInBST(root->right, x);
-    }
-}
+};
