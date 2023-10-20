@@ -15,4 +15,26 @@ Given an array of integers nums, find the next permutation of nums.*/
 - Find the break point. When you find it swap with someone who is slightly larger than the break point. Smallest larger number to the right
 - Fill the remaining spaces to the right by making as small integer as possible i.e., by sorting.
 - Edge case : If there is no dip, this means that current is the largest permutation. Thus, return the reverse of it. */
-
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+        int ind = -1;
+        for(int i = nums.size() - 2; i >= 0; i--) { //finding the break point
+            if(nums[i] < nums[i+1]) {
+                ind = i;
+                break;
+            }
+        }
+        if(ind == -1)   {
+            reverse(nums.begin(), nums.end());  //checking if no break point exists
+            return;
+        }
+        for(int n = nums.size()-1; n > ind; n--) {  //swapping with smallest element greater than arr[ind]
+            if(nums[n] > nums[ind]) {
+                swap(nums[n], nums[ind]);
+                break;
+            }
+        }
+        reverse(nums.begin()+ind+1, nums.end());    //generating next permutation
+    }
+};
