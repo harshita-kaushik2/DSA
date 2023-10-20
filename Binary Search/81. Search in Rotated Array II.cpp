@@ -7,7 +7,6 @@ So, in order to eliminate this case, if we come across :
 (nums[mid] == nums[low] && nums[mid] == nums[high]) = We shorten our search space to the next element from low by low++ and previous element from high by high--.
 And we continue doing this until we find numbers that are unequal. On them we can perform the operation of checking for the sorted half like we did in Search in Rotated Sorted Array I */
 
-Code
 class Solution {
 public:
     bool search(vector<int>& nums, int target) {

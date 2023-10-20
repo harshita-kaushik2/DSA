@@ -32,8 +32,8 @@ public:
             mid = (low+high)/2;
             if(nums[mid] == target) return mid;
 
-            if(nums[low] <= nums[mid]){
-                if(nums[low] <= target && target <= nums[mid])
+            if(nums[low] <= nums[mid]){         //identifying the sorted half
+                if(nums[low] <= target && target <= nums[mid])      //checking if the target value lies in range of sorted half
                 high = mid - 1;
 
                 else    low = mid + 1;  
