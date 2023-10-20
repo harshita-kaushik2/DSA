@@ -26,3 +26,27 @@ public:
         return ans; // Return the maximum sum of a subarray of length K
     }
 };
+
+//{ Driver Code Starts
+#include<bits/stdc++.h> 
+using namespace std; 
+
+// } Driver Code Ends
+class Solution{   
+public:
+    long maximumSumSubarray(int K, vector<int> &Arr , int N){
+       int start = 0, end = 0;
+        long sum = 0, max_sum = LLONG_MIN; 
+        while (end < K) {
+            sum += Arr[end++];
+        }
+
+        while (end < N) {
+            max_sum = max(max_sum, sum);
+            sum += Arr[end++] - Arr[start++];
+        }
+
+        max_sum = max(max_sum, sum); 
+        return max_sum;
+    }
+};
