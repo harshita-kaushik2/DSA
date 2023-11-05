@@ -40,7 +40,7 @@ int main() {
     return 0;
 }
 
-==========> IN CASE ASKED TO WRITE A FUNCTION FOR INSERT & LOOP FORMATION
+==========> APPROACH 2 : SLOW & FAST POINTER USING FUCNTIONS : IN CASE ASKED TO WRITE A FUNCTION FOR INSERT & LOOP FORMATION
 
 #include<bits/stdc++.h>
 using namespace std;

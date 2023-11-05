@@ -17,6 +17,10 @@ public:
 };
 
 //TABULATION ===================================================================================>>
+/*a little tricky => Since the base case in memoization was i<0 we cannot write dp[-1] in tabulation. Thus we need to 
+shift the indices to right by 1. Every i that you are giving should be treated as i-1 and so on for j as well. This is 
+only done at the time of string comparison or index comparison. No changes to be made to dp array.
+*/
 class Solution {
 public:
     int longestCommonSubsequence(string text1, string text2) {

@@ -62,3 +62,4 @@ vector<vector<int>> shortestJobFirst(int n, vector<int> &processId, vector<int> 
     }
     return answer;
 }
+s

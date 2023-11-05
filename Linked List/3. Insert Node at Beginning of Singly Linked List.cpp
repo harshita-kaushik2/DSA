@@ -11,8 +11,7 @@ class Node {
     }
 };
 
-void PrintList(Node * head) // Function to print the LinkedList
-{
+void PrintList(Node * head) {// Function to print the LinkedList
   Node * curr = head;
   while(curr!= NULL) {
         cout << curr -> val << "-->";

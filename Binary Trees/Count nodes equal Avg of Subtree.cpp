@@ -16,7 +16,7 @@ class Solution {
 
         if(avg == root->val)    ans++;
 
-        return ans;
+        return ans; //returns the count of equal to avg values
     }
 public:
     int averageOfSubtree(TreeNode* root) {
