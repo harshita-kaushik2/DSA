@@ -82,3 +82,32 @@ int main() {
 
 ==========> APPROACH 2 : USING SLOW AND FAST POINTER
 
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+        bool ans = false;
+
+        while(fast != NULL && fast->next != NULL) {
+            slow=slow->next;
+            fast=fast->next->next;
+
+            if(slow==fast) {
+                ans=true;
+                break;
+            }
+        }
+
+        if(ans==false) return NULL;
+
+        else {
+            slow = head;
+            while(slow!=fast) {
+                slow=slow->next;
+                fast=fast->next;
+            }
+            return slow;
+        } 
+    }
+};

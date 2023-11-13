@@ -11,23 +11,23 @@ public:
     }
 };
 
-Node* reverseLinkedList(Node* head) {
-    if (head == NULL || head->next == NULL)
-        return head;
-
-    Node* curr = head;
-    Node* prev = NULL;
-    Node* forward = NULL;
-
-    while (curr != NULL) {
-        forward = curr->next;
+    void reverse(ListNode* &head, ListNode* curr, ListNode* prev) {
+        if(curr==NULL) {
+            head = prev;
+            return;
+        }
+        ListNode* forward = curr->next;
+        reverse(head, forward, curr);
         curr->next = prev;
-
-        prev = curr;
-        curr = forward;
     }
-    return prev;
-}
+    ListNode* reverseList(ListNode* head) {
+        ListNode* curr = head;
+        ListNode* prev = NULL;
+        reverse(head, curr, prev);
+        return head;
+    }
+};
+
 
 void printList(Node* head) {
     while (head) {

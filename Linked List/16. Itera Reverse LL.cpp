@@ -12,18 +12,19 @@ public:
 };
 
 Node* reverseList(Node* head) {
-    Node* prev_p = nullptr;
-    Node* current_p = head;
-    Node* next_p;
+    if(head==NULL || head->next == NULL)    return head;
 
-    while (current_p) {
-        next_p = current_p->next;
-        current_p->next = prev_p;
-        prev_p = current_p;
-        current_p = next_p;
+    Node* prev = NULL;
+    Node* curr = head;
+    Node* forward = NULL;
+
+    while(curr!=NULL) {
+        forward = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = forward;
     }
-    head = prev_p;
-    return head;
+    return prev;
 }
 
 // Utility function to print the linked list
