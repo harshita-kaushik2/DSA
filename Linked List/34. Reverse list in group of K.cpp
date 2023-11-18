@@ -9,37 +9,39 @@ Step 3 : Return head of reversed linked list, that is prev pointer.
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
+        if( head == NULL)   return NULL;
+        ListNode* temp = head;
+      
+        ListNode* forward = NULL;
+        ListNode* curr = head;
+        ListNode* prev = NULL;
+        int count = 0;
 
-        if(head==NULL){
-            return head;
+        if(!possible(head,k))   return head;
+
+        while(curr != NULL && count < k)    {
+            forward = curr -> next;
+            curr -> next = prev;
+            prev = curr;
+            curr = forward;
+            count ++;
         }
 
-       ListNode* forward=NULL;
-       ListNode* curr=head;
-       ListNode* prev=NULL;
+        if ( forward != NULL ) {
+            head -> next = reverseKGroup(forward, k);
+        } 
+        return prev;
+    }
 
-       int n=0;
-       while(n<k){ 
-           if(curr==NULL)
-             break;
-           curr=curr->next;
-           n++;
-       }
-       if(n!=k){
-           return head;
-       }
+    bool possible(ListNode* head, int k) {
+        ListNode* temp = head;
+        int length=0;
 
-       curr = head;
-       n=0;
-       while(curr!=NULL&&n<k){
-        forward=curr->next;
-        curr->next=prev;
-        prev=curr;
-        curr=forward;
-        n++;
+        while(temp != NULL) {
+            temp=temp->next;
+            length++;
+            if(length >=k) return true;
         }
-    ListNode* temp=reverseKGroup( curr, k) ;
-    head->next=temp;
- return prev;   
+        return false;
     }
 };
