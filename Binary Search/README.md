@@ -19,7 +19,7 @@ int binarySearch(int arr[], int target) {
 }
 ```
 
-# Lower Bound : Smallest index such that  ```cpp  arr[ind] >= n ```
+# Lower Bound : Smallest index such that  ```arr[ind] >= n ```
 
 ```cpp
 int lowerBound(vector<int> arr, int n, int x) {
@@ -45,7 +45,7 @@ lb = lower_bound ( arr.begin(), arr.end(), target );     //This returns the poin
 
 lb = lower_bound ( arr.begin(), arr.end(), target ) - arr.begin();   //returns index
 
-# Upper Bound : Smallest index such that ```cpp arr[ind] > n ```
+# Upper Bound : Smallest index such that ```arr[ind] > n ```
 
 ub = upper_bound ( arr.begin(), arr.end(), target ) - arr.begin();   //returns index
 
