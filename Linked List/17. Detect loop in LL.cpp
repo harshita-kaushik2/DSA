@@ -55,20 +55,20 @@ class node {
         }
 };
 
-bool cycleDetect(node* head) {
-    if(head == NULL) return false;
-    node* fast = head;
-    node* slow = head;
-        
-    while(fast->next != NULL && fast->next->next != NULL) {
+bool hasCycle(ListNode *head) {
+    ListNode* slow = head;
+    ListNode* fast = head;
+    if(head == NULL || head->next == NULL)    return false;
+
+    while(fast != NULL && fast->next != NULL ) {
         fast = fast->next->next;
         slow = slow->next;
-        if(fast == slow) return true;
+
+        if(slow==fast)  return true;
     }
     return false;
 }
 
-//utility function to insert node in the list
 void insertNode(node* &head,int val) {
     node* newNode = new node(val);
     
@@ -84,7 +84,6 @@ void insertNode(node* &head,int val) {
     return;
 }
 
-//utility function to create cycle
 void createCycle(node* &head,int a,int b) {
     int cnta = 0,cntb = 0;
     node* p1 = head;
@@ -95,9 +94,6 @@ void createCycle(node* &head,int a,int b) {
     }
     p2->next = p1;
 }
-
-//utility function to detect cycle
-
 
 int main() {
     node* head = NULL;

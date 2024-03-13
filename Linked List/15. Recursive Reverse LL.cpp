@@ -11,19 +11,17 @@ public:
     }
 };
 
-    void reverse(ListNode* &head, ListNode* curr, ListNode* prev) {
-        if(curr==NULL) {
-            head = prev;
-            return;
-        }
-        ListNode* forward = curr->next;
-        reverse(head, forward, curr);
-        curr->next = prev;
+ListNode* solve(ListNode* &prev, ListNode* &curr){
+        if(curr==NULL) return prev;
+
+        ListNode* forward=curr->next;
+        curr->next=prev;
+        return solve(curr,forward);
     }
     ListNode* reverseList(ListNode* head) {
-        ListNode* curr = head;
         ListNode* prev = NULL;
-        reverse(head, curr, prev);
+        ListNode* curr = head;
+        head = solve(prev,curr);
         return head;
     }
 };

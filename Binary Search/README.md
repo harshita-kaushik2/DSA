@@ -1,8 +1,8 @@
-Time COmplexity = O( log n base 2)
+Time Complexity = O( log n base 2)
 # Recursive Binary Search
 ```cpp
 int binarySearch(int arr[], int target) {
-    int n = int n = sizeof(arr) / sizeof(arr[0]);
+    int n = sizeof(arr) / sizeof(arr[0]);
     int l = 0, r = n - 1;
 
     if (r >= l) {
