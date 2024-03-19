@@ -23,26 +23,22 @@ If so, it narrows down the search space to the right side (low = mid + 1); other
 The algorithm continues this process until the target element is found or the search space is fully explored. 
 If the target is not found, the function returns -1. */
 
-class Solution {
+cclass Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int low = 0, high = nums.size()-1, mid =0;
-
-        while(low <= high){
-            mid = (low+high)/2;
+        int n = nums.size();
+        int low = 0, high = n-1;
+        while(low <= high) {
+            int mid = (low+high)/2;
             if(nums[mid] == target) return mid;
-
-            if(nums[low] <= nums[mid]){         //identifying the sorted half
-                if(nums[low] <= target && target <= nums[mid])      //checking if the target value lies in range of sorted half
-                high = mid - 1;
-
-                else    low = mid + 1;  
+            if(nums[mid] <= nums[high]) {    //means right half is sorted
+                //check if target lies in the range
+                if(nums[mid] <= target && nums[high] >= target)   low = mid+1;
+                else high = mid-1;
             }
-            else {
-                if(nums[mid] <= target && target <= nums[high])
-                low = mid + 1;
-
-                else    high = mid - 1;
+            else {  //means left half is sorted
+                if(nums[low] <=  target && nums[mid] >= target) high = mid-1;
+                else    low = mid+1;
             }
         }
         return -1;
