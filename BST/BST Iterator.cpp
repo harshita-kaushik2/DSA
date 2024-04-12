@@ -2,10 +2,10 @@ class BSTIterator {
 public:
     stack<TreeNode*> s;
     BSTIterator(TreeNode* root) {
-        partialInorder(root);
+        allLeft(root);
     }
     
-    void partialInorder(TreeNode* root){
+    void allLeft(TreeNode* root){
         while(root != NULL){
             s.push(root);
             root = root->left;
@@ -15,7 +15,7 @@ public:
     int next() {
         TreeNode* top = s.top();
         s.pop();
-        partialInorder(top->right);
+        allLeft(top->right);
         return top->val;
     }
     

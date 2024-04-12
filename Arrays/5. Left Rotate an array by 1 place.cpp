@@ -1,7 +1,7 @@
 void solve(int arr[], int n) {
-  int temp[n];
+  int temp = arr[n-1];
   for (int i = 1; i < n; i++) {
-    temp[i - 1] = arr[i];
+    arr[i-1] = arr[i];
   }
-  temp[n - 1] = arr[0];
+  arr[n-1] = temp;
 }
