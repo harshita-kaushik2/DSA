@@ -21,20 +21,14 @@ void PrintList(Node * head) {// Function to print the LinkedList
 }
 
 Node * InsertatFirst(int value, Node * head) {
-
-  // Step1 : creating a new Node with the given val
   Node * newnode = new Node(value);
-
-  // Step2 : Making next of newly created Node to point the head of LinkedList
   newnode -> next = head;
-
-  // Making the newly created Node as head
   head = newnode;
   return head;
 }
 
 int main() {
-  Node * head = NULL; // head of the LinkedList
+  Node * head = NULL; 
   head = InsertatFirst(40, head);
   head = InsertatFirst(30, head);
   head = InsertatFirst(20, head);
